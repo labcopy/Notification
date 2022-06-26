@@ -21,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Notification builder = Notification.Builder(MainActivity.this)
+                Notification builder = new Notification.Builder(MainActivity.this).setContentTitle("New Message").setContentText(editText.getText().toString()).setSmallIcon(R.mipmap.ic_launcher).build();
+                NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                manager.notify(0,builder);
             }
         });
     }
